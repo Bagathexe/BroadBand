@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import model.*;
 public class Controller {
     private View view;
-    private User user;
+    private List<User> user=new ArrayList<>();
     private Plan[] plans;
     private Subscription subscription;
     private Billing billing;
@@ -30,7 +30,7 @@ public class Controller {
             switch(choice){
                 
                 case 1:
-                user  = view.getUserDetails();
+                user.add( view.getUserDetails());
                 System.out.println("User Registrated Successfully");
                 break;
                 
@@ -54,7 +54,7 @@ public class Controller {
                     
                      else {
                         Plan selectedPlan = plans[planChoice - 1];
-                        subscription = new Subscription(user, selectedPlan);
+                        subscription = new Subscription(user.get(0), selectedPlan);
                         billing = new Billing("Monthly", selectedPlan.getPrice(), "Paid",3);
                         System.out.println("Subscribed to " + selectedPlan.getPlanName() + " plan!");
                         System.out.println();
@@ -83,8 +83,8 @@ public class Controller {
                 case 7:
 
                     System.out.println("Exiting Application");
-                    for(int i=0;i<10;i++){
-                        for(int j=0;j<100000000;j++){
+                    for(int i=0;i<19;i++){
+                        for(int j=0;j<10000000*5;j++){
 
                         }
                         
